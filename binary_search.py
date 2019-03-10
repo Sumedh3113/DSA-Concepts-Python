@@ -3,7 +3,7 @@ def binary_search(input_array, value):
     high = len(input_array)-1
     low = 0
     while(low <= high):
-        m = math.floor(high+low/2)
+        m = math.floor((high+low)/2)
         if(input_array[m] == value):
             return value
         elif(input_array[m] > value):
