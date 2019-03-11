@@ -7,7 +7,9 @@ def mergeSort(a):
         R = a[mid:]
         mergeSort(L)
         mergeSort(R)
-        
+        #First mergeSort(L) will get called till the end of base condition then
+		#mergeSort(R) will get called till end of base condition then the code below will be executed
+		
         i = j = k = 0
         
         while i< len(L) and j< len(R):
