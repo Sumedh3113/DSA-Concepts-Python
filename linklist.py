@@ -7,6 +7,7 @@ class Element(object):
 class LinkedList(object):
     "head will point to the first element "
     def __init__(self, head=None):
+		# head is object of which class 
         self.head = head
 	"Rest of the elements are added this way"
     def append(self, new_element):
