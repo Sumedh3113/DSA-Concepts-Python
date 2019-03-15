@@ -32,12 +32,17 @@
 				self.root.value = delNode.value
 				
 				# here we are rearranging the tree as per BST properties 
+				# also we travelled till the leftest child of right tree it can not have 
+				# left child as per above while loop but it can have right child thats what we are checking here				
 				if delNode.rightChild:
 					if delNodeParent.value > delNode.value:
 						delNodeParent.leftChild = delNode.rightChild
 					elif delNodeParent.value < delNode.value:
 						delNodeParent.rightChild = delNode.rightChild
 				else:
+					# if it was the last node just set it to none
+					# this condition is checking only two child possiblity or 
+					# if root.right.left has two child case
 					if delNode.value < delNodeParent.value:
 						delNodeParent.leftChild = None
 					else:
