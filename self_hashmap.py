@@ -11,6 +11,7 @@ class HashTable(object):
         the table."""
         hash_index = self.calculate_hash_value(string)
         if self.table[hash_index] is None:
+			# here typecast the string as a list is very important
             self.table[hash_index] = [string]  
         else:
             self.table[hash_index].append(string)
@@ -77,6 +78,7 @@ class HashTable(object):
         hv = self.calculate_hash_value(string)
         if hv != -1:
             if self.table[hv] != None:
+				# this one is better approach for search
                 if string in self.table[hv]:
                     return hv
         return -1
