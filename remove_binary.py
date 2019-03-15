@@ -40,9 +40,11 @@
 					elif delNodeParent.value < delNode.value:
 						delNodeParent.rightChild = delNode.rightChild
 				else:
-					# if it was the last node just set it to none
+					# if it was the last node just set it to none i.e delNode has no child 
+					# as it can not have left child
 					# this condition is checking only two child possiblity or 
 					# if root.right.left has two child case
+					# check this one???? why are we checking for leftchild condition
 					if delNode.value < delNodeParent.value:
 						delNodeParent.leftChild = None
 					else:
@@ -54,7 +56,10 @@
 		node = self.root
 		
 		# find node to remove
+		# as soon as node.value == data while loop stops
+		# or if data is not presents while loop stops at tree end
 		while node and node.value != data:
+			# value of parent will change with every iteration
 			parent = node
 			if data < node.value:
 				node = node.leftChild
@@ -66,6 +71,8 @@
 			return False
 			
 		# case 2: remove-node has no children
+		# this case root has only 2 children and left or right child is te node to be deleted
+		# i.e the node to be deleted do not have any child
 		elif node.leftChild is None and node.rightChild is None:
 			if data < parent.value:
 				parent.leftChild = None
