@@ -12,16 +12,26 @@
 			# if root has only left child
 			elif self.root.leftChild and self.root.rightChild is None:
 				self.root = self.root.leftChild
+			# if root has only right child
 			elif self.root.leftChild is None and self.root.rightChild:
 				self.root = self.root.rightChild
+			# if root has both the child	
 			elif self.root.leftChild and self.root.rightChild:
+				# making two separate variables so that we can assign 
+				# delNodeparent.left or delNodeparent.right to delNode.left or delNode.right 
 				delNodeParent = self.root
+				#why is it assigning root.rightChild in the begining 
+				# because by taking leftest child from right child will maintain the BST property 
+				# i.e leftChild < root < rightChild
 				delNode = self.root.rightChild
+				
 				while delNode.leftChild:
 					delNodeParent = delNode
 					delNode = delNode.leftChild
-					
+				# assigned value of leftest child to root node
 				self.root.value = delNode.value
+				
+				# here we are rearranging the tree as per BST properties 
 				if delNode.rightChild:
 					if delNodeParent.value > delNode.value:
 						delNodeParent.leftChild = delNode.rightChild
